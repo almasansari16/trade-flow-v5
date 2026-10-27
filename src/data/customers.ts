@@ -1,0 +1,116 @@
+import type { Address, Customer } from '@/types/domain'
+import { ago } from '@/utils/time'
+
+const addr = (line1: string, city: string, country: string, postalCode?: string): Address => ({ line1, city, country, postalCode })
+
+export const customers: Customer[] = [
+  {
+    id: 'c-001', code: 'CUST-10021', name: 'Gulf Horizon Trading', legalName: 'Gulf Horizon Trading LLC', country: 'United Arab Emirates', city: 'Dubai',
+    territoryId: 't-uae', status: 'Active', crNumber: 'DXB-CR-884213', taxNumber: 'TRN 100384712900003', currency: 'AED', paymentTerms: 'Net 30 days',
+    creditLimit: 1_500_000, brandIds: ['b-velour', 'b-oud', 'b-noire', 'b-aurelle'], tier: 'Platinum', accountManagerId: 'u-sc', externalRef: 'BP-0010021', sapBusinessPartner: '0010021',
+    contacts: [
+      { id: 'ct-1', name: 'Omar Haddad', role: 'Purchasing Director', email: 'omar.haddad@gulfhorizon.example', phone: '+971 4 555 0142', primary: true },
+      { id: 'ct-2', name: 'Rania Khoury', role: 'Accounts Payable', email: 'accounts@gulfhorizon.example', phone: '+971 4 555 0177' },
+      { id: 'ct-3', name: 'Imran Shaikh', role: 'Warehouse Lead', email: 'warehouse@gulfhorizon.example', phone: '+971 50 555 0190' },
+    ],
+    billingAddress: addr('Office 1804, Bay Square Tower 2, Business Bay', 'Dubai', 'United Arab Emirates'),
+    deliveryAddress: addr('Warehouse 7, Al Quoz Industrial Area 3', 'Dubai', 'United Arab Emirates'),
+    customerSince: ago(980),
+  },
+  {
+    id: 'c-002', code: 'CUST-10034', name: 'Al Noor Perfumes Distribution', legalName: 'Al Noor Perfumes Distribution Co.', country: 'Saudi Arabia', city: 'Riyadh',
+    territoryId: 't-ksa', status: 'Active', crNumber: '1010-552-881', taxNumber: 'VAT 310224581700003', currency: 'SAR', paymentTerms: 'Net 45 days',
+    creditLimit: 2_000_000, brandIds: ['b-oud', 'b-velour', 'b-noire'], tier: 'Platinum', accountManagerId: 'u-sc', externalRef: 'BP-0010034', sapBusinessPartner: '0010034',
+    contacts: [
+      { id: 'ct-4', name: 'Yousef Al-Harbi', role: 'Managing Partner', email: 'yousef@alnoor-perfumes.example', phone: '+966 11 555 0110', primary: true },
+      { id: 'ct-5', name: 'Nadia Saleh', role: 'Finance Manager', email: 'finance@alnoor-perfumes.example', phone: '+966 11 555 0123' },
+    ],
+    billingAddress: addr('King Fahd Road, Al Olaya District', 'Riyadh', 'Saudi Arabia', '12214'),
+    deliveryAddress: addr('2nd Industrial City, Block 14', 'Riyadh', 'Saudi Arabia', '14332'),
+    customerSince: ago(1240),
+  },
+  {
+    id: 'c-003', code: 'CUST-10047', name: 'Pearl Coast Retail', legalName: 'Pearl Coast Retail W.L.L.', country: 'Qatar', city: 'Doha',
+    territoryId: 't-gcc', status: 'Active', crNumber: 'QA-CR-61204', taxNumber: 'TIN 5003221', currency: 'QAR', paymentTerms: '100% advance before release',
+    creditLimit: 600_000, brandIds: ['b-oud', 'b-noire', 'b-aurelle'], tier: 'Gold', accountManagerId: 'u-sc', externalRef: 'BP-0010047', sapBusinessPartner: '0010047',
+    contacts: [{ id: 'ct-6', name: 'Hamad Al-Kuwari', role: 'Category Manager', email: 'hamad@pearlcoast.example', phone: '+974 4455 0161', primary: true }],
+    billingAddress: addr('Building 22, West Bay', 'Doha', 'Qatar'),
+    deliveryAddress: addr('Street 41, Industrial Area', 'Doha', 'Qatar'),
+    customerSince: ago(610),
+  },
+  {
+    id: 'c-004', code: 'CUST-10052', name: 'Thames & Bloom', legalName: 'Thames & Bloom Ltd', country: 'United Kingdom', city: 'London',
+    territoryId: 't-uk', status: 'Active', crNumber: 'UK 11294877', taxNumber: 'GB 294 8812 04', currency: 'GBP', paymentTerms: '50% advance, 50% before release',
+    creditLimit: 400_000, brandIds: ['b-velour', 'b-cedar', 'b-noire'], tier: 'Gold', accountManagerId: 'u-sc', externalRef: 'BP-0010052', sapBusinessPartner: '0010052',
+    contacts: [
+      { id: 'ct-7', name: 'Charlotte Hughes', role: 'Head of Buying', email: 'charlotte@thamesbloom.example', phone: '+44 20 7946 0183', primary: true },
+      { id: 'ct-8', name: 'Ben Whitaker', role: 'Operations', email: 'ops@thamesbloom.example', phone: '+44 20 7946 0122' },
+    ],
+    billingAddress: addr('48 Marylebone High Street', 'London', 'United Kingdom', 'W1U 5HL'),
+    deliveryAddress: addr('Unit 4, Park Royal Trading Estate', 'London', 'United Kingdom', 'NW10 7NU'),
+    customerSince: ago(720),
+  },
+  {
+    id: 'c-005', code: 'CUST-10058', name: 'Maison Rive Distribution', legalName: 'Maison Rive Distribution SAS', country: 'France', city: 'Lyon',
+    territoryId: 't-weu', status: 'Active', crNumber: 'RCS Lyon 852 114 903', taxNumber: 'FR 41 852114903', currency: 'EUR', paymentTerms: '100% advance before release',
+    creditLimit: 500_000, brandIds: ['b-velour', 'b-noire', 'b-aurelle', 'b-cedar'], tier: 'Gold', accountManagerId: 'u-sc', externalRef: 'BP-0010058', sapBusinessPartner: '0010058',
+    contacts: [{ id: 'ct-9', name: 'Élodie Marchand', role: 'Directrice Commerciale', email: 'elodie@maisonrive.example', phone: '+33 4 72 55 01 90', primary: true }],
+    billingAddress: addr('12 Quai Saint-Antoine', 'Lyon', 'France', '69002'),
+    deliveryAddress: addr('ZI Lyon Sud, Bâtiment C', 'Saint-Priest', 'France', '69800'),
+    customerSince: ago(455),
+  },
+  {
+    id: 'c-006', code: 'CUST-10063', name: 'Straits Scent', legalName: 'Straits Scent Pte. Ltd.', country: 'Singapore', city: 'Singapore',
+    territoryId: 't-sea', status: 'Active', crNumber: 'UEN 201934455K', taxNumber: 'GST M90374415X', currency: 'SGD', paymentTerms: '100% advance before release',
+    creditLimit: 450_000, brandIds: ['b-velour', 'b-oud', 'b-aurelle', 'b-noire'], tier: 'Silver', accountManagerId: 'u-sc', externalRef: 'BP-0010063', sapBusinessPartner: '0010063',
+    contacts: [{ id: 'ct-10', name: 'Grace Lim', role: 'Merchandising Lead', email: 'grace@straitsscent.example', phone: '+65 6555 0148', primary: true }],
+    billingAddress: addr('80 Robinson Road, #12-03', 'Singapore', 'Singapore', '068898'),
+    deliveryAddress: addr('15 Tuas Avenue 8', 'Singapore', 'Singapore', '639229'),
+    customerSince: ago(390),
+  },
+  {
+    id: 'c-007', code: 'CUST-10071', name: 'Indus Luxe Traders', legalName: 'Indus Luxe Traders (Pvt.) Ltd.', country: 'Pakistan', city: 'Karachi',
+    territoryId: 't-sa', status: 'Active', crNumber: 'SECP 0148223', taxNumber: 'NTN 4418820-3', currency: 'USD', paymentTerms: 'Letter of Credit at sight',
+    creditLimit: 250_000, brandIds: ['b-velour', 'b-oud', 'b-aurelle'], tier: 'Silver', accountManagerId: 'u-sc', externalRef: 'BP-0010071', sapBusinessPartner: '0010071',
+    contacts: [{ id: 'ct-11', name: 'Sana Qureshi', role: 'Director', email: 'sana@indusluxe.example', phone: '+92 21 3555 0170', primary: true }],
+    billingAddress: addr('Plot 14-C, Khayaban-e-Ittehad, DHA Phase VI', 'Karachi', 'Pakistan'),
+    deliveryAddress: addr('Port Qasim Industrial Zone, Shed 9', 'Karachi', 'Pakistan'),
+    customerSince: ago(300),
+  },
+  {
+    id: 'c-008', code: 'CUST-10076', name: 'Savanna Fragrance House', legalName: 'Savanna Fragrance House Ltd', country: 'Kenya', city: 'Nairobi',
+    territoryId: 't-eaf', status: 'On Hold', crNumber: 'PVT-7LU2X9A', taxNumber: 'PIN P051844213Q', currency: 'USD', paymentTerms: '100% advance before release',
+    creditLimit: 120_000, brandIds: ['b-velour', 'b-oud'], tier: 'Silver', accountManagerId: 'u-sc', externalRef: 'BP-0010076', sapBusinessPartner: '0010076',
+    contacts: [{ id: 'ct-12', name: 'Wanjiru Kamau', role: 'Owner', email: 'wanjiru@savannafh.example', phone: '+254 20 555 0119', primary: true }],
+    billingAddress: addr('Westlands Square, 3rd Floor', 'Nairobi', 'Kenya'),
+    deliveryAddress: addr('Mombasa Road, Godown 22', 'Nairobi', 'Kenya'),
+    customerSince: ago(260),
+  },
+  {
+    id: 'c-009', code: 'CUST-10081', name: 'Muscat Royal Trading', legalName: 'Muscat Royal Trading SAOC', country: 'Oman', city: 'Muscat',
+    territoryId: 't-uae', status: 'Active', crNumber: 'OM-CR-1284431', taxNumber: 'OM 1100293844', currency: 'AED', paymentTerms: '100% advance before release',
+    creditLimit: 350_000, brandIds: ['b-oud', 'b-velour'], tier: 'Silver', accountManagerId: 'u-sc', externalRef: 'BP-0010081', sapBusinessPartner: '0010081',
+    contacts: [{ id: 'ct-13', name: 'Salim Al-Busaidi', role: 'General Manager', email: 'salim@muscatroyal.example', phone: '+968 2455 0133', primary: true }],
+    billingAddress: addr('Al Khuwair, Way 3013, Building 18', 'Muscat', 'Oman'),
+    deliveryAddress: addr('Rusayl Industrial Estate, Unit 40', 'Muscat', 'Oman'),
+    customerSince: ago(200),
+  },
+  {
+    id: 'c-010', code: 'CUST-10088', name: 'Kuwait Prime Cosmetics', legalName: 'Kuwait Prime Cosmetics Co. W.L.L.', country: 'Kuwait', city: 'Kuwait City',
+    territoryId: 't-gcc', status: 'Active', crNumber: 'KW-CR-399120', taxNumber: 'N/A', currency: 'USD', paymentTerms: '100% advance before release',
+    creditLimit: 300_000, brandIds: ['b-oud', 'b-noire'], tier: 'New', accountManagerId: 'u-sc', externalRef: 'BP-0010088', sapBusinessPartner: '0010088',
+    contacts: [{ id: 'ct-14', name: 'Abdullah Al-Sabah', role: 'Purchasing Manager', email: 'purchasing@kuwaitprime.example', phone: '+965 2255 0187', primary: true }],
+    billingAddress: addr('Sharq, Al Hamra Tower, Floor 31', 'Kuwait City', 'Kuwait'),
+    deliveryAddress: addr('Shuwaikh Industrial Area, Block 2', 'Kuwait City', 'Kuwait'),
+    customerSince: ago(64),
+  },
+  {
+    id: 'c-011', code: 'CUST-10092', name: 'Nordlicht Parfümerie', legalName: 'Nordlicht Parfümerie GmbH', country: 'Germany', city: 'Hamburg',
+    territoryId: 't-weu', status: 'Active', crNumber: 'HRB 174422', taxNumber: 'DE 318844120', currency: 'EUR', paymentTerms: '100% advance before release',
+    creditLimit: 200_000, brandIds: ['b-noire', 'b-cedar'], tier: 'New', accountManagerId: 'u-sc', /* SAP BP creation failed (see Integration Monitor) — no mapping yet */
+    contacts: [{ id: 'ct-15', name: 'Jonas Becker', role: 'Einkaufsleiter', email: 'jonas@nordlicht.example', phone: '+49 40 555 01 66', primary: true }],
+    billingAddress: addr('Neuer Wall 41', 'Hamburg', 'Germany', '20354'),
+    deliveryAddress: addr('Billbrookdeich 210', 'Hamburg', 'Germany', '22113'),
+    customerSince: ago(21),
+  },
+]
